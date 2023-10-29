@@ -1,10 +1,8 @@
 package org.softwaretechnologies;
 
 import org.softwaretechnologies.animals.Animal;
-import org.softwaretechnologies.animals.AnimalType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -34,7 +32,10 @@ public class Zoo {
      */
     public List<String> soundAllAnimalsSortByName() {
         List<String> sounds = new ArrayList<>();
-        // TODO заполните корректно список звуков
+        animalList.sort(Comparator.comparing(Animal::getName));
+        for (Animal animal : animalList) {
+            sounds.add(animal.sound());
+        }
 
         return sounds;
     }
