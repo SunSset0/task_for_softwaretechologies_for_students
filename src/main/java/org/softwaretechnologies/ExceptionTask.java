@@ -12,11 +12,9 @@ public class ExceptionTask {
         try {
             throwRuntimeException();
         }catch (Exception s){
-            System.out.println("Вызвана функция printMessage");
+            System.out.println("printMessage");
         }
-
     }
-
     /**
      * Исправьте функцию printMessage2 не убирая вызов функции throwCatchableException.
      * Функция printMessage должна выводить на экран сообщение:
@@ -26,7 +24,7 @@ public class ExceptionTask {
         try {
             throwCatchableException();
         }catch (Exception e){
-            System.out.println("Вызвана функция printMessage2");
+            System.out.println("printMessage2");
         }
     }
 
