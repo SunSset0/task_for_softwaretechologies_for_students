@@ -30,7 +30,7 @@ class ExceptionTaskTest {
     void printMessage() {
         ExceptionTask.printMessage();
         String s = outContent.toString();
-        assertEquals("Вызвана функция printMessage" + System.lineSeparator(), s);
+        assertEquals("printMessage" + System.lineSeparator(), s);
     }
 
     @Test
@@ -38,7 +38,7 @@ class ExceptionTaskTest {
         try {
             ExceptionTask.printMessage2();
             String s = outContent.toString();
-            assertEquals("Вызвана функция printMessage2" + System.lineSeparator(), s);
+            assertEquals("printMessage2" + System.lineSeparator(), s);
         } catch (Exception e) {
             fail();
             throw new RuntimeException(e);
