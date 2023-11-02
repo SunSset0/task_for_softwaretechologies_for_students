@@ -33,11 +33,14 @@ public class Company {
      */
     public int getMonthSalary(int month) {
         int sum = 0;
-        for(Employee x: employeeList) sum += x.getMonthSalary(month);
-        return sum;//////////
-
+        for(Employee employee : employeeList) {
+            sum += calculateSalaryForMonth(employee, month);
+        }
+        return sum;
     }
-
+    private int calculateSalaryForMonth(Employee employee, int month) {
+        return employee.getMonthSalary(month);
+    }
     public String getName() {
         return name;
     }
