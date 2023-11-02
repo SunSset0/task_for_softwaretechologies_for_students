@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Zoo {
     private final List<Animal> animalList = new ArrayList<>();
+
     public void addAnimal(Animal animal) {
 
         animalList.add(animal);
@@ -17,7 +18,7 @@ public class Zoo {
      * Метод должен возвращять список звуков животных.
      * Звуки животных должны быть отсортированы по имени житного. Пример
      * Животные:
-     *
+     * <p>
      * Корова: Яша
      * Кошка: Дуся
      * Собака: Жучка
@@ -25,7 +26,7 @@ public class Zoo {
      * Собака: Шарик
      * Кошка: Мурзик
      * Собака: Бобик
-     *
+     * <p>
      * Вовращаемый список звуков: moo, woof, meow, woof, meow, woof, moo
      *
      * @return Звуки животных, в алфавитном порядке имени животного.
@@ -34,11 +35,11 @@ public class Zoo {
         List<String> sounds = new ArrayList<>();
         animalList.sort(Comparator.comparing(Animal::getName));
         for (Animal animal : animalList) {
-            sounds.add(animal.sound());
+            sounds.add(getAnimalSound(animal));
         }
-
         return sounds;
     }
-
-
+    private String getAnimalSound(Animal animal) {
+        return animal.sound();
+    }
 }
