@@ -10,14 +10,13 @@ public final class ArrayFunctions {
      *
      * @param array массив, который будет перевернут.
      */
-        public static void reverse(int[] array) {
-            for(int i = 0; i < array.length / 2; i++) {
-                int temp = array[i];
-                array[i] = array[array.length - i - 1];
-                array[array.length - i - 1] = temp;
-            }
+    public static void reverse(int[] array) {
+        for (int i = 0, j = array.length - 1; i < j; i++, j--) {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
-
     /**
      * Функция, заменяющая строки матрицы на столбцы матрицы. Пример:
      * 1  2  3     1  4  7
@@ -33,7 +32,7 @@ public final class ArrayFunctions {
         int ln = matrix.length;
         int h = matrix[0].length;
         if ( ln != h) {
-            System.out.println("Матрица не квадратная");
+            System.out.println("матрица не квадратная");
             return;
         }
         for (int i = 0; i < ln; i++) {
