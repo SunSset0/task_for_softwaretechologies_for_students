@@ -30,24 +30,17 @@ public final class ArrayFunctions {
      * @param matrix матрица, в которой столбцы будут заменены на строки.
      */
     public static void rotateMatrix(int[][] matrix) {
-        if (matrix.length != matrix[0].length) {
+        int ln = matrix.length;
+        int h = matrix[0].length;
+        if ( ln != h) {
             System.out.println("Матрица не квадратная");
-            return;}
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = i; j < matrix[0].length; j++) {
-                int temp = matrix[i][j];
-                matrix[i][j] = matrix[j][i];
-                matrix[j][i] = temp;}
+            return;
         }
-        for (int i = 0; i < matrix.length; i++) {
-            int left = 0;
-            int right = matrix[0].length - 1;
-            while (left < right) {
-                int temp = matrix[i][left];
-                matrix[i][left] = matrix[i][right];
-                matrix[i][right] = temp;
-                left++;
-                right--;
+        for (int i = 0; i < ln; i++) {
+            for (int j = i; j < h; j ++){
+                int buf = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = buf;
             }
         }
     }
