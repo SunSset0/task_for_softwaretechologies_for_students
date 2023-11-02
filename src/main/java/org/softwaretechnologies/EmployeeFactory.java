@@ -7,25 +7,21 @@ import java.time.YearMonth;
 
 public class EmployeeFactory {
     private static class Manager extends Employee{
-
         EmployeeType type = EmployeeType.Manager;
         public Manager(String name, int baseSalary) {
             super(name, baseSalary);
         }
-
         @Override
         public int getMonthSalary(int month) {
             if (month % 2 == 0) return baseSalary;
             return baseSalary / 2;
         }
-
     }
     private static class Programmer extends Employee{
         EmployeeType type = EmployeeType.Programmer;
         protected Programmer(String name, int baseSalary) {
             super(name, baseSalary);
         }
-
         @Override
         public int getMonthSalary(int month) {
             return baseSalary;
@@ -36,7 +32,6 @@ public class EmployeeFactory {
         protected Tester(String name, int baseSalary) {
             super(name, baseSalary);
         }
-
         @Override
         public int getMonthSalary(int month) {
             return baseSalary * YearMonth.of(LocalDate.now().getYear(), month).lengthOfMonth();
