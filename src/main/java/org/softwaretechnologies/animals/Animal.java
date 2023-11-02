@@ -2,15 +2,12 @@ package org.softwaretechnologies.animals;
 
 public abstract class Animal {
     private final String name;
-
     public Animal(String name) {
         this.name = name;
     }
-
     public String getName() {
         return name;
     }
-
     /**
      * Создайте три класса животных: кошка, корова, собака.
      * Кошка должна издавать звук: "meow"
