@@ -2,9 +2,6 @@ package org.softwaretechnologies;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Random;
-
-import static java.lang.Integer.MAX_VALUE;
 
 public class Money {
     private final MoneyType type;
@@ -26,11 +23,18 @@ public class Money {
      */
     @Override
     public boolean equals(Object o) {
-        // TODO: реализуйте вышеуказанную функцию
-
-        return false;
+            if (amount == null) {
+                BigDecimal scaledAmount = BigDecimal.valueOf(0);
+            } else {
+            }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Money money = (Money) o;
+        if (type != money.type) return false;
+        BigDecimal scaledAmount = amount.setScale(4, RoundingMode.HALF_UP);
+        BigDecimal otherScaledAmount = money.amount.setScale(4, RoundingMode.HALF_UP);
+        return scaledAmount.equals(otherScaledAmount);
     }
-
     /**
      * Формула:
      * (Если amount null 10000, иначе количество денег окрукленные до 4х знаков * 10000) + :
@@ -48,11 +52,34 @@ public class Money {
      */
     @Override
     public int hashCode() {
-        // TODO: реализуйте вышеуказанную функцию
-
-
-        Random random = new Random();
-        return random.nextInt();
+        if (amount == null) {
+            BigDecimal scaledAmount = BigDecimal.valueOf(0);
+        } else {
+        }
+        BigDecimal scaledAmount;
+        if (amount == null) {
+            scaledAmount = BigDecimal.valueOf(10000);
+        } else {
+            scaledAmount = amount.setScale(4, RoundingMode.HALF_UP);
+        }
+        int scaledAmountHash = scaledAmount.multiply(BigDecimal.valueOf(10000)).intValue();
+        int typeHash = 0;
+        if (type == MoneyType.USD) {
+            typeHash = 1;
+        } else if (type == MoneyType.EURO) {
+            typeHash = 2;
+        } else if (type == MoneyType.RUB) {
+            typeHash = 3;
+        } else if (type == MoneyType.KRONA) {
+            typeHash = 4;
+        } else {
+            typeHash = 5;
+        }
+        int hash = scaledAmountHash + typeHash;
+        if (scaledAmountHash >= (Integer.MAX_VALUE - 5)) {
+            return Integer.MAX_VALUE;
+        }
+        return hash;
     }
 
     /**
