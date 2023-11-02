@@ -42,14 +42,14 @@ class ElevatorTest {
     private static String createMessage(int currentFloor, int floor) {
         StringBuilder buffer = new StringBuilder();
         while (currentFloor != floor) {
-            buffer.append("Текущий этаж: ")
+            buffer.append("Текущий")
                     .append(currentFloor)
                     .append(System.lineSeparator());
             if(currentFloor > floor) {
                 currentFloor--;
             } else currentFloor++;
         }
-        buffer.append("Вы достигли указанного этажа: ")
+        buffer.append("Достигнут")
                 .append(floor)
                 .append(System.lineSeparator());
         return buffer.toString();
@@ -94,7 +94,7 @@ class ElevatorTest {
         assertEquals(-3, elevator.getCurrentFloor());
         elevator.goToExactFloor(-4);
         assertEquals(-3, elevator.getCurrentFloor());
-        String s = "Указан неверный этаж" + System.lineSeparator() + "Указан неверный этаж" + System.lineSeparator();
+        String s = "Неверный этаж" + System.lineSeparator() + "Неверный этаж" + System.lineSeparator();
         assertEquals(s, outContent.toString());
     }
 }
