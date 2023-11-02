@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mockStatic;
 
 class CompanyTest {
-
     @Test
     void getMonthSalary() {
         Company test = new Company("test");
@@ -34,7 +33,6 @@ class CompanyTest {
             assertEquals(1562, march);
         }
     }
-
     @Test
     void getMonthSalaryLeapYear() {
         Company test = new Company("test");
