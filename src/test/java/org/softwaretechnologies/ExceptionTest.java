@@ -1,6 +1,5 @@
 package org.softwaretechnologies;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -21,9 +20,8 @@ public class ExceptionTest {
         } finally {
             x += 300;
         }
-        assertEquals(1000, x);
+        assertEquals(1301, x);
     }
-
     @Test
     public void test2() {
         int x = 1000;
@@ -34,9 +32,8 @@ public class ExceptionTest {
         } catch (Exception e) {
             x += 10;
         }
-        assertEquals(1000, x);
+        assertEquals(1002, x);
     }
-
     @Test
     public void test3() {
         int x = 0;
@@ -47,9 +44,8 @@ public class ExceptionTest {
         } catch (Exception e) {
             x = 2;
         }
-        assertEquals(0, x);
+        assertEquals(2, x);
     }
-
     @Test
     public void test4() {
         int x = 0;
@@ -60,9 +56,8 @@ public class ExceptionTest {
         } catch (Exception e) {
             x = 2;
         }
-        assertEquals(0, x);
+        assertEquals(1, x);
     }
-
     @Test
     public void test5() {
         int x = 0;
@@ -79,9 +74,8 @@ public class ExceptionTest {
         } finally {
             x += 400;
         }
-        assertEquals(0, x);
+        assertEquals(410, x);
     }
-
     String s = "";
     void f() throws Exception {
         try {
@@ -93,7 +87,6 @@ public class ExceptionTest {
             s += "b";
         }
     }
-
     @Test
     public void test6() {
         try {
@@ -101,6 +94,6 @@ public class ExceptionTest {
         } catch (Exception e) {
             s += "c";
         }
-        assertEquals("xxxx", s);
+        assertEquals("abc", s);
     }
 }
